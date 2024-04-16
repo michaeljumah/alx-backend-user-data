@@ -20,7 +20,7 @@ if auth_type == 'auth':
     auth = Auth()
 if auth_type == 'basic_auth':
     auth = BasicAuth()
-    
+
 
 @app.errorhandler(401)
 def unauthorized(error) -> str:
@@ -61,7 +61,7 @@ def authenticate_user():
             if user is None:
                 abort(403)
 
-                
+
 if __name__ == "__main__":
     host = getenv("API_HOST", "0.0.0.0")
     port = getenv("API_PORT", "5000")
