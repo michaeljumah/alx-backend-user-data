@@ -30,8 +30,8 @@ elif auth_type == 'session_db_auth':
 elif auth_type == "basic_auth":
     auth = BasicAuth()
 else:
-    auth = Auth()
-    
+    Auth = Auth()
+
 
 @app.errorhandler(404)
 def not_found(error) -> str:
