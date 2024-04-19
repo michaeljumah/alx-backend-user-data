@@ -16,7 +16,6 @@ CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
 auth = None
 AUTH_TYPE = getenv("AUTH_TYPE")
 
-
 if AUTH_TYPE == "auth":
     from api.v1.auth.auth import Auth
     auth = Auth()
@@ -36,7 +35,7 @@ elif AUTH_TYPE == "session_db_auth":
 
 @app.errorhandler(404)
 def not_found(error) -> str:
-    """ Not found handler
+    """ Not found handler.
     """
     return jsonify({"error": "Not found"}), 404
 
