@@ -15,7 +15,9 @@ app = Flask(__name__)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 app.register_blueprint(app_views)
 CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
+
 auth = None
+
 AUTH_TYPE = getenv('AUTH_TYPE')
 
 if AUTH_TYPE == "auth":
@@ -58,7 +60,7 @@ def forbidden_error(error) -> str:
 
 @app.before_request
 def before_request() -> str:
-    """ Before Request Handler, Requests Validation.
+    """ Handles processes before moving to Routes
     """
     if auth is None:
         return
