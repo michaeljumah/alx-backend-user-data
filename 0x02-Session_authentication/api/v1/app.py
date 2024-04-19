@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""
-Route module for the API
+""" Route module for the API
 """
 from api.v1.views import app_views
 from flask import Flask, jsonify, abort, request
@@ -42,22 +41,21 @@ def not_found(error) -> str:
 
 @app.errorhandler(401)
 def unauthorized_error(error) -> str:
-    """ Unauthorized handler
+    """ Unauthorized handler.
     """
     return jsonify({"error": "Unauthorized"}), 401
 
 
 @app.errorhandler(403)
 def forbidden_error(error) -> str:
-    """ Forbidden handler
+    """ Forbidden handler.
     """
     return jsonify({"error": "Forbidden"}), 403
 
 
 @app.before_request
 def before_request() -> str:
-    """ Before Request Handler
-    Requests Validation
+    """ Before Request Handler, Requests Validation.
     """
     if auth is None:
         return
