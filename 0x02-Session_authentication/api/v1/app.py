@@ -7,6 +7,8 @@ from flask import Flask, jsonify, abort, request
 from flask_cors import (CORS, cross_origin)
 import os
 from os import getenv
+from api.v1.auth.auth import Auth
+from api.v1.auth.basic_auth import BasicAuth
 
 
 app = Flask(__name__)
@@ -45,7 +47,7 @@ def unauthorized_error(error) -> str:
     """ Unauthorized handler
     """
     return jsonify({"error": "Unauthorized"}), 401
-
+OA
 
 @app.errorhandler(403)
 def forbidden_error(error) -> str:
